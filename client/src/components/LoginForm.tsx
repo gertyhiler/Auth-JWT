@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { useUserStore } from "../store/UserStore";
+import './loginForm.css'
 
 export const LoginForm: FC = () => {
   const [email, setEmail] = useState("");
@@ -14,18 +15,20 @@ export const LoginForm: FC = () => {
   }
 
   return (
-    <div>
+    <div className="login-wrapper">
       <input
+      className="input"
       onChange={emailHandler}
       value={email}
       type="email"
       placeholder="Email" />
 
       <input
+      className="input"
        onChange={passwordHandler}
        value={password}
       type="password"
-      placeholder="password" />
+      placeholder="Password" />
 
       <button type="submit"
       onClick={() => userStore.login(email, password)}>Login</button>
